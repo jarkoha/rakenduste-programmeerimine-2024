@@ -42,3 +42,8 @@ console.log(addNumbersNested(3)(4));
 
 const addNumbersNestedShort = (num1) => (num2) => num1 + num2;
 console.log(addNumbersNestedShort(3)(12));
+
+
+const hello = (name = "World") => `Hello ${name}`;
+console.log(hello());
+console.log(hello("Jarl"));
