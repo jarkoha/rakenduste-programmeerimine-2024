@@ -47,3 +47,15 @@ console.log(addNumbersNestedShort(3)(12));
 const hello = (name = "World") => `Hello ${name}`;
 console.log(hello());
 console.log(hello("Jarl"));
+
+
+const newArray = [1,2,3,4,5];
+const addedArray = newArray.map((element) => element + 5);
+console.log(addedArray);
+
+
+const threeParameters = newArray.map((element, index, array) => {
+    console.log(element, index, array)
+    return element + 5
+});
+console.log({threeParameters}); //aitab arusaada, mille value on console logitud. (threeParameters: threeParameters) on sama asi.
