@@ -49,13 +49,66 @@ console.log(hello());
 console.log(hello("Jarl"));
 
 
-const newArray = [1,2,3,4,5];
+/*const newArray = [1,2,3,4,5];
 const addedArray = newArray.map((element) => element + 5);
-console.log(addedArray);
+console.log(addedArray);*/
 
 
-const threeParameters = newArray.map((element, index, array) => {
+/*const threeParameters = newArray.map((element, index, array) => {
     console.log(element, index, array)
     return element + 5
 });
-console.log({threeParameters}); //aitab arusaada, mille value on console logitud. (threeParameters: threeParameters) on sama asi.
+console.log({threeParameters});*/ //aitab arusaada, mille value on console logitud. (threeParameters: threeParameters) on sama asi.
+
+
+const Array = [1,2,3,4,5,6,7,8,9];
+const filteredArray = Array.filter((element)=> element > 4);
+console.log({filteredArray});
+
+
+const names = ["Anni", "Mari", "Mati", "Juku"];
+const objectifiedNames = names.map((name) => {
+    return {
+        name: name,
+        age: name.length + 20,
+        email: `${name}@company.com`,
+        address: `${name} Street 55`,
+        username: name.split("").reverse().join("")
+    }
+});
+
+console.log({objectifiedNames});
+
+/*{
+    name:'Anni',
+    age: 24,
+    email: 'anni@company.com',
+    address: 'Anni Street 55',
+    username: 'innA'
+}*/
+
+
+
+let jarl = {
+    name: "Jarl",
+    school: "TLÜ"
+};
+
+jarl = {...jarl, height: 186};
+
+console.log({ jarl });
+//{ jarl: { name: 'Jarl', school: 'TLÜ', height: 186 } }
+
+
+
+//async/Await ja promise näited
+
+const myPromise = () => {
+    return new Promise((resolve) => setTimeout(() => resolve("done"), 1000))
+};
+
+const runPromise = async() => {
+    console.log(await myPromise());
+};
+
+runPromise();
