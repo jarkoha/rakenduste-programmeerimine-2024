@@ -28,6 +28,7 @@ router.get('/flights/:from-:to', (req, res) => {
     res.send(req.params)
 });
 
+
 router.post('/', (req, res) => {
     res.send('POST request to the homepage')
 });
