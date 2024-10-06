@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const { validationResult } = require("express-validator");
 
 const todos = [
     {
@@ -20,6 +21,11 @@ const todos = [
 ];
 
 exports.create = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     const { title, priority } = req.body;
 
     const newTodo = {
@@ -42,6 +48,11 @@ exports.read = (req, res) => {
 };
 
 exports.update = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     const { id } = req.params;
     const { title, priority } = req.body;
 
@@ -59,6 +70,12 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+
     const { id } = req.params;
 
     const todo = todos.find(todo => todo.id === parseInt(id));
